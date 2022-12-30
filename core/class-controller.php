@@ -67,7 +67,7 @@ class Controller
 
 
             $sede_script_params['badge'] = SEDE_CORE_URL . 'assets/img/Send-Denial-Badge.svg';
-            $sede_script_params['credits_text'] = __( 'protected by <a rel="sponsored follow" target="_blank" href="https://senddenial.com">Send Denial</a><br/> <span>Spam Sentinel</span>', SEDE_TEXTDOMAIN );
+            $sede_script_params['credits_text'] = __( 'protected by <a rel="sponsored follow" target="_blank" href="https://senddenial.com">Send Denial</a><br/> <span>Spam Sentinel</span>', 'send-denial' );
         }
 
         wp_register_style( 'send-denial', false );
@@ -89,7 +89,7 @@ class Controller
         wp_localize_script('send-denial-admin', 'SEDEADMIN', [
             'url'                       =>  admin_url( 'admin-ajax.php' ),
             'siteurl'                   =>  site_url(),
-            'generate_token_text'       =>  __( 'Generate new Token', SEDE_TEXTDOMAIN ),
+            'generate_token_text'       =>  __( 'Generate new Token', 'send-denial' ),
             'cnt_action'                =>  'sede_create_new_token',
             'cnt_nonce'                 =>  wp_create_nonce( 'sede_create_new_token' )
         ]);

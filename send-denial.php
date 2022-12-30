@@ -25,7 +25,6 @@ define( 'SEDE_PLUGIN_SLUG', 'send-denial' );
 define( 'SEDE_PREFIX', 'SEDE' );
 define( 'SEDE_CORE_PATH', plugin_dir_path(__FILE__) );
 define( 'SEDE_CORE_URL', plugin_dir_url(__FILE__) );
-define( 'SEDE_TEXTDOMAIN', 'send-denial');
 
 /**
  * Core Autoloader
@@ -57,7 +56,7 @@ new \SEDE\Core\Init();
  */
 function sede_load_textdomain( $mofile, $domain ) {
 
-	if ( SEDE_TEXTDOMAIN === $domain && false !== strpos( $mofile, WP_LANG_DIR . '/plugins/' ) ) {
+	if ( 'send-denial' === $domain && false !== strpos( $mofile, WP_LANG_DIR . '/plugins/' ) ) {
 
 		$locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
 		$mofile = WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) . '/languages/' . $domain . '-' . $locale . '.mo';

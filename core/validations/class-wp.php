@@ -21,7 +21,7 @@ class Wp
 
     public function add_honeypot_field() {
 
-        echo '<input type="hidden" name="'.$GLOBALS['sede_field_name'].'" value="" />';
+        echo '<input type="hidden" name="'.esc_attr( $GLOBALS['sede_field_name'] ).'" value="" />';
 
     }
 

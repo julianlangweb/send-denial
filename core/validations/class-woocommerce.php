@@ -52,7 +52,7 @@ class Woocommerce
 
     public function add_honeypot() {
 
-        $html = '<div class="sede--hide"><input type="text" name="'.$GLOBALS['sede_field_name'].'" autocomplete="off" id="sede-token" value=""></div>';
+        $html = '<div class="sede--hide"><input type="text" name="'.esc_attr( $GLOBALS['sede_field_name'] ).'" autocomplete="off" id="sede-token" value=""></div>';
         echo $html;
 
     }
