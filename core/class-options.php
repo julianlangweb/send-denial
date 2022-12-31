@@ -106,7 +106,16 @@ class Options
      */
     public function plugin_section_text_credits() {
         $html = '<p style="max-width:500px">'.__( '<strong>Send Denial is built, maintained and extended for free.<br /> It will support as many major form plugins as possible for free.</strong><br /> Including Premium Form Builders and WooCommerce. Therefore helps your business stay safe and protect you from spam mails by your forms.<br /> It will never spam or hijack your wp-admin on trying to upsell a premium version. <br />If you like this way of thinking feel free to enable this checkbox. <strong>It will display a very decent and small badge below your forms</strong> that the form is protected by Send Denial and helps Send Denial get more recognition.', 'send-denial' ).'</p>';
-        echo $html;
+        echo wp_kses( 
+            $html,
+            array(
+                'p'      => array(
+                    'style'  => array()
+                ),
+                'br'     => array(),
+                'strong' => array()
+            ) 
+        );
     }
 
     public function plugin_setting_token() {
@@ -115,13 +124,49 @@ class Options
         $html .= '<div style="min-height: 30px"></div>';
         $html .= "<p><span id='sede_create_token_btn' class='button button-secondary'>".__( 'Create new Pair', 'send-denial' )."</span></p>";
         $html .= "<p><em>".__( 'Change the token and fieldname from time to time if you like', 'send-denial' )."</em></p>";
-        echo $html;
+        echo wp_kses( 
+            $html,
+            array(
+                'p'      => array(
+                    'style'  => array(),
+                    'id'    =>  array(),
+                ),
+                'br'     => array(),
+                'strong' => array(),
+                'span'  =>  array(
+                    'id'    =>  array(),
+                    'class' =>  array(),
+                ),
+                'em'    =>  array(),
+                'div'   =>  array(),
+                'input' =>  array(
+                    'id'    =>  array(),
+                    'name'  =>  array(),
+                    'type'  =>  array(),
+                    'value' =>  array(),
+                    'required'  =>  array()
+                )
+            )  
+        );
+
+       
     }
 
     public function plugin_setting_fieldname() {
         $options = get_option( 'sede_plugin_options' );
         $html = "<input id='sede_setting_fieldname' name='sede_plugin_options[fieldname]' type='text' value='".esc_attr($options['fieldname'])."' required />";
-        echo $html;
+        echo wp_kses( 
+            $html,
+            array(
+                'input' =>  array(
+                    'id'    =>  array(),
+                    'name'  =>  array(),
+                    'type'  =>  array(),
+                    'value' =>  array(),
+                    'required'  =>  array()
+                )
+            )  
+        );
     }
 
     public function plugin_setting_show_credits() {
@@ -131,7 +176,19 @@ class Options
             $value = $options['show_credits'];
         }
         $html = "<input id='sede_setting_show_credits' name='sede_plugin_options[show_credits]' type='checkbox' value='1' ".checked( 1, esc_attr($value), false )."/>";
-        echo $html;
+        echo wp_kses( 
+            $html,
+            array(
+                'input' =>  array(
+                    'id'    =>  array(),
+                    'name'  =>  array(),
+                    'type'  =>  array(),
+                    'value' =>  array(),
+                    'required'  =>  array(),
+                    'checked'   =>  array()
+                )
+            )  
+        );
     }
 
     /**
